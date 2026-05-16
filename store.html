@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سوق المدينة - Great Town</title>
+    <meta name="description" content="سوق المدينة - احصل على العناصر الحصرية">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        obsidian: {
+                            dark: '#0b0f19',
+                            light: '#151b2b',
+                        },
+                        electric: {
+                            cyan: '#00f0ff',
+                        },
+                        gold: {
+                            deep: '#ffb800',
+                        },
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'shimmer': 'shimmer 3s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        shimmer: {
+                            '0%': { transform: 'translateX(-100%)' },
+                            '100%': { transform: 'translateX(100%)' },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background: #0b0f19;
+        }
+        .glass-card {
+            background: rgba(21, 27, 43, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 300ms ease-in-out;
+        }
+        .glass-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.3), 0 0 60px rgba(0, 240, 255, 0.1);
+        }
+        .metallic-gradient {
+            background: linear-gradient(135deg, #ffb800 0%, #ffffff 25%, #ffb800 50%, #ffffff 75%, #ffb800 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: metallic-shine 3s linear infinite;
+        }
+        @keyframes metallic-shine {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+        .radial-glow {
+            background: radial-gradient(ellipse at center, rgba(0, 240, 255, 0.08) 0%, transparent 70%);
+        }
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.4), 0 0 40px rgba(0, 240, 255, 0.2);
+            transition: all 300ms ease-in-out;
+        }
+        .neon-glow:hover {
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.6), 0 0 60px rgba(0, 240, 255, 0.4), 0 0 90px rgba(0, 240, 255, 0.2);
+        }
+        .shimmer-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        .shimmer-effect::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            animation: shimmer 3s infinite;
+        }
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #00f0ff;
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: particle-float 6s ease-in-out infinite;
+        }
+        @keyframes particle-float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0.4; }
+            50% { transform: translateY(-20px) translateX(10px); opacity: 0.8; }
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen font-cairo overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-card animate__animated animate__fadeInDown">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-3 space-x-reverse">
+                    <div class="w-10 h-10 bg-gradient-to-br from-electric-cyan to-electric-cyan/60 rounded-lg flex items-center justify-center neon-glow">
+                        <i class="fas fa-bolt text-lg text-white"></i>
+                    </div>
+                    <span class="text-xl font-black font-montserrat metallic-gradient">Great Town</span>
+                </div>
+                <div class="flex items-center space-x-6 space-x-reverse">
+                    <a href="index.html" class="text-gray-400 hover:text-electric-cyan transition-all duration-300 hover:scale-110">الرئيسية</a>
+                    <a href="store.html" class="text-electric-cyan font-bold hover:text-white transition-all duration-300 hover:scale-110">سوق المدينة</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Store Header -->
+    <section class="relative pt-40 pb-20 px-4">
+        <!-- Radial Glow Background -->
+        <div class="absolute inset-0 radial-glow"></div>
+        
+        <!-- Particle Effects -->
+        <div class="particle" style="top: 20%; right: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="top: 30%; left: 15%; animation-delay: 1s;"></div>
+        <div class="particle" style="top: 40%; right: 20%; animation-delay: 2s;"></div>
+        <div class="particle" style="top: 50%; left: 25%; animation-delay: 3s;"></div>
+        
+        <div class="relative z-10 text-center max-w-5xl mx-auto animate__animated animate__fadeInUp">
+            <div class="inline-flex items-center justify-center w-24 h-24 glass-card rounded-full border-2 border-gold-deep/30 neon-glow mb-8 animate-float">
+                <i class="fas fa-shopping-bag text-5xl text-gold-deep"></i>
+            </div>
+            <h1 class="text-5xl sm:text-7xl md:text-8xl font-black mb-6">
+                <span class="text-gold-deep">سوق</span>
+                <span class="text-white"> </span>
+                <span class="text-electric-cyan">المدينة</span>
+            </h1>
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                احصل على العناصر الحصرية وطور شخصيتك
+            </p>
+        </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section class="py-16 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product Card 1 - باقة النخبة VIP -->
+                <div class="glass-card rounded-2xl overflow-hidden shimmer-effect animate__animated animate__fadeInUp animate__delay-1s">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" alt="باقة النخبة VIP" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian-dark to-transparent"></div>
+                        <div class="absolute top-4 right-4 bg-gold-deep/20 backdrop-blur-sm px-3 py-1 rounded-full border border-gold-deep/30">
+                            <span class="text-xs font-bold text-gold-deep">باقة النخبة VIP</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3">باقة المواطنة الـ VIP</h3>
+                        <p class="text-gray-400 text-sm mb-6 leading-relaxed">مزايا حصرية وشارات خاصة تعرفك في المدينة</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-black text-gold-deep">$24.99<span class="text-sm text-gray-400">/شهر</span></span>
+                            <button class="bg-gradient-to-r from-electric-cyan to-electric-cyan/80 px-6 py-3 rounded-xl font-bold text-white neon-glow hover:scale-105 transition-all duration-300">
+                                اشترِ الآن
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 - كراج الأساطير -->
+                <div class="glass-card rounded-2xl overflow-hidden shimmer-effect animate__animated animate__fadeInUp animate__delay-2s">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400&h=300&fit=crop" alt="كراج الأساطير" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian-dark to-transparent"></div>
+                        <div class="absolute top-4 right-4 bg-electric-cyan/20 backdrop-blur-sm px-3 py-1 rounded-full border border-electric-cyan/30">
+                            <span class="text-xs font-bold text-electric-cyan">كراج الأساطير</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3">كراج التميز</h3>
+                        <p class="text-gray-400 text-sm mb-6 leading-relaxed">وصول حصري للسيارات المستوردة المخصصة</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-black text-gold-deep">$49.99</span>
+                            <button class="bg-gradient-to-r from-electric-cyan to-electric-cyan/80 px-6 py-3 rounded-xl font-bold text-white neon-glow hover:scale-105 transition-all duration-300">
+                                اشترِ الآن
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 - دعم العصابات -->
+                <div class="glass-card rounded-2xl overflow-hidden shimmer-effect animate__animated animate__fadeInUp animate__delay-3s">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=400&h=300&fit=crop" alt="دعم العصابات" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian-dark to-transparent"></div>
+                        <div class="absolute top-4 right-4 bg-gold-deep/20 backdrop-blur-sm px-3 py-1 rounded-full border border-gold-deep/30">
+                            <span class="text-xs font-bold text-gold-deep">دعم العصابات</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3">دعم العصابة</h3>
+                        <p class="text-gray-400 text-sm mb-6 leading-relaxed">باقات عصابات كاملة مع مناطق حصرية</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-black text-gold-deep">$39.99</span>
+                            <button class="bg-gradient-to-r from-electric-cyan to-electric-cyan/80 px-6 py-3 rounded-xl font-bold text-white neon-glow hover:scale-105 transition-all duration-300">
+                                اشترِ الآن
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 - العقارات الفاخرة -->
+                <div class="glass-card rounded-2xl overflow-hidden shimmer-effect animate__animated animate__fadeInUp animate__delay-4s">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&h=300&fit=crop" alt="العقارات الفاخرة" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian-dark to-transparent"></div>
+                        <div class="absolute top-4 right-4 bg-electric-cyan/20 backdrop-blur-sm px-3 py-1 rounded-full border border-electric-cyan/30">
+                            <span class="text-xs font-bold text-electric-cyan">العقارات الفاخرة</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3">حزمة العقارات</h3>
+                        <p class="text-gray-400 text-sm mb-6 leading-relaxed">منازل مخصصة مع ديكورات داخلية فريدة</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-black text-gold-deep">$59.99</span>
+                            <button class="bg-gradient-to-r from-electric-cyan to-electric-cyan/80 px-6 py-3 rounded-xl font-bold text-white neon-glow hover:scale-105 transition-all duration-300">
+                                اشترِ الآن
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 5 - معززات الحساب -->
+                <div class="glass-card rounded-2xl overflow-hidden shimmer-effect animate__animated animate__fadeInUp animate__delay-5s">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?w=400&h=300&fit=crop" alt="معززات الحساب" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian-dark to-transparent"></div>
+                        <div class="absolute top-4 right-4 bg-gold-deep/20 backdrop-blur-sm px-3 py-1 rounded-full border border-gold-deep/30">
+                            <span class="text-xs font-bold text-gold-deep">معززات الحساب</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3">تعزيز العملة القانوني</h3>
+                        <p class="text-gray-400 text-sm mb-6 leading-relaxed">خدمة احترافية لزيادة رصيدك بشكل آمن</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-black text-gold-deep">$19.99</span>
+                            <button class="bg-gradient-to-r from-electric-cyan to-electric-cyan/80 px-6 py-3 rounded-xl font-bold text-white neon-glow hover:scale-105 transition-all duration-300">
+                                اشترِ الآن
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="glass-card border-t border-electric-cyan/10 py-10 px-4 mt-16">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="flex items-center justify-center space-x-3 space-x-reverse mb-4">
+                <div class="w-10 h-10 bg-gradient-to-br from-electric-cyan to-electric-cyan/60 rounded-lg flex items-center justify-center neon-glow">
+                    <i class="fas fa-bolt text-lg text-white"></i>
+                </div>
+                <span class="text-xl font-black font-montserrat metallic-gradient">Great Town</span>
+            </div>
+            <p class="text-gray-400 text-sm">© 2024 Great Town. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+</body>
+</html>

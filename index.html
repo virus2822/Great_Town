@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Town - سيرفر GTA V FiveM</title>
+    <meta name="description" content="Great Town - سيرفر FiveM احترافي في الشرق الأوسط">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        obsidian: {
+                            dark: '#0b0f19',
+                            light: '#151b2b',
+                        },
+                        electric: {
+                            cyan: '#00f0ff',
+                        },
+                        gold: {
+                            deep: '#ffb800',
+                        },
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'shimmer': 'shimmer 3s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        shimmer: {
+                            '0%': { transform: 'translateX(-100%)' },
+                            '100%': { transform: 'translateX(100%)' },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background: #0b0f19;
+        }
+        .glass-card {
+            background: rgba(21, 27, 43, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 300ms ease-in-out;
+        }
+        .glass-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.3), 0 0 60px rgba(0, 240, 255, 0.1);
+        }
+        .metallic-gradient {
+            background: linear-gradient(135deg, #ffb800 0%, #ffffff 25%, #ffb800 50%, #ffffff 75%, #ffb800 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: metallic-shine 3s linear infinite;
+        }
+        @keyframes metallic-shine {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+        .radial-glow {
+            background: radial-gradient(ellipse at center, rgba(0, 240, 255, 0.08) 0%, transparent 70%);
+        }
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.4), 0 0 40px rgba(0, 240, 255, 0.2);
+            transition: all 300ms ease-in-out;
+        }
+        .neon-glow:hover {
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.6), 0 0 60px rgba(0, 240, 255, 0.4), 0 0 90px rgba(0, 240, 255, 0.2);
+        }
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #00f0ff;
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: particle-float 6s ease-in-out infinite;
+        }
+        @keyframes particle-float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0.4; }
+            50% { transform: translateY(-20px) translateX(10px); opacity: 0.8; }
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen font-cairo overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-card animate__animated animate__fadeInDown">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-3 space-x-reverse">
+                    <div class="w-10 h-10 bg-gradient-to-br from-electric-cyan to-electric-cyan/60 rounded-lg flex items-center justify-center neon-glow">
+                        <i class="fas fa-bolt text-lg text-white"></i>
+                    </div>
+                    <span class="text-xl font-black font-montserrat metallic-gradient">Great Town</span>
+                </div>
+                <div class="flex items-center space-x-6 space-x-reverse">
+                    <a href="index.html" class="text-electric-cyan font-bold hover:text-white transition-all duration-300 hover:scale-110">الرئيسية</a>
+                    <a href="store.html" class="text-gray-400 hover:text-electric-cyan transition-all duration-300 hover:scale-110">سوق المدينة</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+        <!-- Radial Glow Background -->
+        <div class="absolute inset-0 radial-glow"></div>
+        
+        <!-- Particle Effects -->
+        <div class="particle" style="top: 15%; right: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="top: 25%; left: 15%; animation-delay: 1s;"></div>
+        <div class="particle" style="top: 35%; right: 20%; animation-delay: 2s;"></div>
+        <div class="particle" style="top: 45%; left: 25%; animation-delay: 3s;"></div>
+        <div class="particle" style="top: 55%; right: 15%; animation-delay: 4s;"></div>
+        <div class="particle" style="top: 65%; left: 20%; animation-delay: 5s;"></div>
+        
+        <div class="relative z-10 text-center px-4 max-w-6xl mx-auto">
+            <!-- Logo Icon -->
+            <div class="mb-10 animate-float animate__animated animate__fadeIn">
+                <div class="inline-flex items-center justify-center w-32 h-32 glass-card rounded-full border border-electric-cyan/30 neon-glow">
+                    <i class="fas fa-city text-5xl text-electric-cyan"></i>
+                </div>
+            </div>
+            
+            <!-- Title -->
+            <h1 class="text-6xl sm:text-8xl md:text-9xl font-black mb-6 font-montserrat leading-tight animate__animated animate__fadeInUp animate__delay-1s">
+                <span class="metallic-gradient block drop-shadow-lg">Great Town</span>
+            </h1>
+            
+            <!-- Headline -->
+            <h2 class="text-2xl sm:text-4xl font-bold mb-4 animate__animated animate__fadeInUp animate__delay-1s" style="line-height: 1.4;">
+                <span class="text-electric-cyan">السيادة،</span> <span class="text-white">القوة،</span> <span class="text-gold-deep">والواقعية.</span>
+            </h2>
+            
+            <!-- Sub-headline -->
+            <p class="text-lg sm:text-xl text-gray-300 mb-10 font-light leading-relaxed animate__animated animate__fadeInUp animate__delay-2s" style="line-height: 2;">
+                هنا تبدأ قصتك. استعد لأقوى تجربة Roleplay في الشرق الأوسط.
+            </p>
+            
+            <!-- Stats Bar -->
+            <div class="inline-flex items-center space-x-6 space-x-reverse glass-card px-8 py-4 rounded-full border border-electric-cyan/20 mb-12 animate__animated animate__fadeInUp animate__delay-2s">
+                <div class="flex items-center space-x-3 space-x-reverse">
+                    <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                    <span class="text-sm font-bold text-green-400">حالة السيرفر: شغال</span>
+                </div>
+                <div class="h-6 w-px bg-electric-cyan/20"></div>
+                <div class="flex items-center space-x-2 space-x-reverse">
+                    <i class="fas fa-users text-lg text-electric-cyan"></i>
+                    <span class="text-sm font-bold text-electric-cyan">اللاعبين المتواجدين: 84</span>
+                </div>
+            </div>
+            
+            <!-- CTA Button -->
+            <a href="fivem://connect/cfx.re/join/g7ll4o" class="inline-block animate__animated animate__fadeInUp animate__delay-3s">
+                <div class="bg-gradient-to-r from-electric-cyan to-electric-cyan/80 px-14 py-5 rounded-full neon-glow animate-pulse hover:scale-105 transition-all duration-300">
+                    <span class="text-xl font-black text-white tracking-wide">دخول السيرفر</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section - عن المدينة -->
+    <section class="py-24 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 animate__animated animate__fadeInUp">
+                <h2 class="text-4xl sm:text-5xl font-black mb-4">
+                    <span class="text-gold-deep">عن</span>
+                    <span class="text-white"> المدينة</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
+                    سيرفر مبني على أسس قوية ومحتوى حصري
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature Card 1 -->
+                <div class="glass-card rounded-2xl p-8 text-center animate__animated animate__fadeInUp animate__delay-1s">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-electric-cyan/10 rounded-xl mb-6 border border-electric-cyan/20">
+                        <i class="fas fa-server text-3xl text-electric-cyan"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">VPS عالي الأداء</h3>
+                    <p class="text-gray-400 leading-relaxed">سيرفرات سريعة ومستقرة بدون لاج أو تقطيع</p>
+                </div>
+                
+                <!-- Feature Card 2 -->
+                <div class="glass-card rounded-2xl p-8 text-center animate__animated animate__fadeInUp animate__delay-2s">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-gold-deep/10 rounded-xl mb-6 border border-gold-deep/20">
+                        <i class="fas fa-code text-3xl text-gold-deep"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">سكربتات حصرية</h3>
+                    <p class="text-gray-400 leading-relaxed">أنظمة وميزات ما تلقاها في أي سيرفر ثاني</p>
+                </div>
+                
+                <!-- Feature Card 3 -->
+                <div class="glass-card rounded-2xl p-8 text-center animate__animated animate__fadeInUp animate__delay-3s">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-electric-cyan/10 rounded-xl mb-6 border border-electric-cyan/20">
+                        <i class="fas fa-shield-alt text-3xl text-electric-cyan"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">قوانين صارمة للكل</h3>
+                    <p class="text-gray-400 leading-relaxed">عدل ومساواة للجميع بدون محابية لأحد</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts Section - أحدث السكربتات -->
+    <section class="py-24 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 animate__animated animate__fadeInUp">
+                <h2 class="text-4xl sm:text-5xl font-black mb-4">
+                    <span class="text-gold-deep">أحدث</span>
+                    <span class="text-white"> السكربتات</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
+                    أنظمة متطورة تجعل تجربتك فريدة من نوعها
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Script Card 1 -->
+                <div class="glass-card rounded-xl p-6 animate__animated animate__fadeInUp animate__delay-1s">
+                    <div class="flex items-center space-x-3 space-x-reverse mb-4">
+                        <div class="w-12 h-12 bg-electric-cyan/10 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-car text-2xl text-electric-cyan"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">نظام السيارات</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">نظام سيارات متطور مع تخصيص كامل</p>
+                </div>
+                
+                <!-- Script Card 2 -->
+                <div class="glass-card rounded-xl p-6 animate__animated animate__fadeInUp animate__delay-2s">
+                    <div class="flex items-center space-x-3 space-x-reverse mb-4">
+                        <div class="w-12 h-12 bg-gold-deep/10 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-home text-2xl text-gold-deep"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">نظام العقارات</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">شراء وبيع العقارات مع ديكورات داخلية</p>
+                </div>
+                
+                <!-- Script Card 3 -->
+                <div class="glass-card rounded-xl p-6 animate__animated animate__fadeInUp animate__delay-3s">
+                    <div class="flex items-center space-x-3 space-x-reverse mb-4">
+                        <div class="w-12 h-12 bg-electric-cyan/10 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-briefcase text-2xl text-electric-cyan"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">نظام الوظائف</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">وظائف متنوعة مع أنظمة رواتب متطورة</p>
+                </div>
+                
+                <!-- Script Card 4 -->
+                <div class="glass-card rounded-xl p-6 animate__animated animate__fadeInUp animate__delay-4s">
+                    <div class="flex items-center space-x-3 space-x-reverse mb-4">
+                        <div class="w-12 h-12 bg-gold-deep/10 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-users text-2xl text-gold-deep"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">نظام العصابات</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">عصابات مع مناطق حصرية وميزات خاصة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="glass-card border-t border-electric-cyan/10 py-10 px-4">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="flex items-center justify-center space-x-3 space-x-reverse mb-4">
+                <div class="w-10 h-10 bg-gradient-to-br from-electric-cyan to-electric-cyan/60 rounded-lg flex items-center justify-center neon-glow">
+                    <i class="fas fa-bolt text-lg text-white"></i>
+                </div>
+                <span class="text-xl font-black font-montserrat metallic-gradient">Great Town</span>
+            </div>
+            <p class="text-gray-400 text-sm">© 2024 Great Town. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+</body>
+</html>
